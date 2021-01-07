@@ -89,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				422A2A7725A5D4330083B29E /* Show.swift */,
-				422A2A8925A5E75D0083B29E /* Shows.plist */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -97,6 +96,7 @@
 		422A2A7B25A5D4D10083B29E /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				422A2A8925A5E75D0083B29E /* Shows.plist */,
 				422A2A6425A5D1BB0083B29E /* Info.plist */,
 				422A2A5F25A5D1BB0083B29E /* Assets.xcassets */,
 				422A2A5625A5D1BA0083B29E /* AppDelegate.swift */,
