@@ -44,6 +44,7 @@ extension Show {
                             length: length,
                             detail: detail,
                             image: image)
+            
             shows.append(show)
         }
         return shows

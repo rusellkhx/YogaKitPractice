@@ -42,13 +42,12 @@ class ViewController: UIViewController {
         createButtonView()
         createTabsView()
     
-        // Apply the layout to view and subviews
         contentView.yoga.applyLayout(preservingOrigin: false)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Calculate and set the content size for the scroll view
+
         var contentViewRect: CGRect = .zero
         for view in contentView.subviews {
             contentViewRect = contentViewRect.union(view.frame)
@@ -96,6 +95,7 @@ private extension ViewController {
     }
     
     func showTabBarFor(text: String, selected: Bool) -> UIView {
+
         let tabView = UIView(frame: .zero)
         tabView.configureLayout { (layout) in
             layout.isEnabled = true
@@ -335,6 +335,28 @@ private extension ViewController {
 
 }
 
+// MARK: - UITableViewDataSource methods
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shows.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.create(ShowTableViewCell.self, indexPath)
+        cell.show = shows[indexPath.row]
+        return cell
+    }
+}
 
+// MARK: - UITableViewDelegate methods
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected row \(indexPath.row)")
+    }
+}
 
 
